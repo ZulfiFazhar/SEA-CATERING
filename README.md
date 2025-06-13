@@ -1,105 +1,142 @@
-<a href="https://demo-nextjs-with-supabase.vercel.app/">
-  <img alt="Next.js and Supabase Starter Kit - the fastest way to build apps with Next.js and Supabase" src="https://demo-nextjs-with-supabase.vercel.app/opengraph-image.png">
-  <h1 align="center">Next.js and Supabase Starter Kit</h1>
-</a>
+# SEA Catering - Healthy Meals Delivery App
 
-<p align="center">
- The fastest way to build apps with Next.js and Supabase
-</p>
-
-<p align="center">
-  <a href="#features"><strong>Features</strong></a> ·
-  <a href="#demo"><strong>Demo</strong></a> ·
-  <a href="#deploy-to-vercel"><strong>Deploy to Vercel</strong></a> ·
-  <a href="#clone-and-run-locally"><strong>Clone and run locally</strong></a> ·
-  <a href="#feedback-and-issues"><strong>Feedback and issues</strong></a>
-  <a href="#more-supabase-examples"><strong>More Examples</strong></a>
-</p>
-<br/>
+A modern web application for SEA Catering's healthy meal delivery service across Indonesia. Built with Next.js 14, Supabase, and shadcn/ui components.
 
 ## Features
 
-- Works across the entire [Next.js](https://nextjs.org) stack
-  - App Router
-  - Pages Router
-  - Middleware
-  - Client
-  - Server
-  - It just works!
-- supabase-ssr. A package to configure Supabase Auth to use cookies
-- Password-based authentication block installed via the [Supabase UI Library](https://supabase.com/ui/docs/nextjs/password-based-auth)
-- Styling with [Tailwind CSS](https://tailwindcss.com)
-- Components with [shadcn/ui](https://ui.shadcn.com/)
-- Optional deployment with [Supabase Vercel Integration and Vercel deploy](#deploy-your-own)
-  - Environment variables automatically assigned to Vercel project
+### 🍽️ Interactive Meal Plans
 
-## Demo
+- Browse and explore different meal plans with detailed information
+- Interactive modal dialogs showing nutrition facts and features
+- Four specialized plans: Healthy Start, Fitness Pro, Family Pack, and Keto Specialist
 
-You can view a fully working demo at [demo-nextjs-with-supabase.vercel.app](https://demo-nextjs-with-supabase.vercel.app/).
+### 📱 Responsive Navigation
 
-## Deploy to Vercel
+- Floating navbar with scroll detection
+- Mobile-responsive design with slide-out menu
+- Active page highlighting
+- Authentication-aware navigation (Dashboard link for signed-in users)
 
-Vercel deployment will guide you through creating a Supabase account and project.
+### 🔐 Authentication System
 
-After installation of the Supabase integration, all relevant environment variables will be assigned to the project so the deployment is fully functioning.
+- Google OAuth integration with Supabase
+- Email/password authentication
+- Role-based access control (Admin/User)
+- Protected dashboard routes
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fnext.js%2Ftree%2Fcanary%2Fexamples%2Fwith-supabase&project-name=nextjs-with-supabase&repository-name=nextjs-with-supabase&demo-title=nextjs-with-supabase&demo-description=This+starter+configures+Supabase+Auth+to+use+cookies%2C+making+the+user%27s+session+available+throughout+the+entire+Next.js+app+-+Client+Components%2C+Server+Components%2C+Route+Handlers%2C+Server+Actions+and+Middleware.&demo-url=https%3A%2F%2Fdemo-nextjs-with-supabase.vercel.app%2F&external-id=https%3A%2F%2Fgithub.com%2Fvercel%2Fnext.js%2Ftree%2Fcanary%2Fexamples%2Fwith-supabase&demo-image=https%3A%2F%2Fdemo-nextjs-with-supabase.vercel.app%2Fopengraph-image.png)
+### 📊 User Dashboard
 
-The above will also clone the Starter kit to your GitHub, you can clone that locally and develop locally.
+- Role-specific content (Admin vs User views)
+- Sidebar navigation with user profile display
+- Real-time authentication state management
 
-If you wish to just develop locally and not deploy to Vercel, [follow the steps below](#clone-and-run-locally).
+### 💳 Subscription Plans
 
-## Clone and run locally
+- Weekly, Monthly, and Quarterly subscription options
+- Pricing comparison with savings calculations
+- FAQ section for customer inquiries
 
-1. You'll first need a Supabase project which can be made [via the Supabase dashboard](https://database.new)
+### ⭐ Customer Testimonials
 
-2. Create a Next.js app using the Supabase Starter template npx command
+- Interactive testimonial submission form with star ratings
+- Carousel display of customer reviews
+- Sample testimonials for demonstration
 
-   ```bash
-   npx create-next-app --example with-supabase with-supabase-app
-   ```
+### 🌙 Theme Support
 
-   ```bash
-   yarn create next-app --example with-supabase with-supabase-app
-   ```
+- Light/Dark mode toggle
+- System theme detection
+- Smooth theme transitions
 
-   ```bash
-   pnpm create next-app --example with-supabase with-supabase-app
-   ```
+## Tech Stack
 
-3. Use `cd` to change into the app's directory
+- **Framework**: Next.js 14 (App Router)
+- **Database & Auth**: Supabase
+- **Styling**: Tailwind CSS
+- **UI Components**: shadcn/ui
+- **Icons**: Lucide React
+- **Theme**: next-themes
+- **Fonts**: Geist Sans
 
-   ```bash
-   cd with-supabase-app
-   ```
+## Getting Started
 
-4. Rename `.env.example` to `.env.local` and update the following:
+### Prerequisites
 
-   ```
-   NEXT_PUBLIC_SUPABASE_URL=[INSERT SUPABASE PROJECT URL]
-   NEXT_PUBLIC_SUPABASE_ANON_KEY=[INSERT SUPABASE PROJECT API ANON KEY]
-   ```
+- Node.js 18+
+- npm or yarn
+- Supabase account
 
-   Both `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY` can be found in [your Supabase project's API settings](https://supabase.com/dashboard/project/_?showConnect=true)
+### Installation
 
-5. You can now run the Next.js local development server:
+1. Clone the repository:
 
-   ```bash
-   npm run dev
-   ```
+```bash
+git clone https://github.com/ZulfiFazhar/SEA-CATERING.git
+cd SEA-CATERING
+```
 
-   The starter kit should now be running on [localhost:3000](http://localhost:3000/).
+2. Install dependencies:
 
-6. This template comes with the default shadcn/ui style initialized. If you instead want other ui.shadcn styles, delete `components.json` and [re-install shadcn/ui](https://ui.shadcn.com/docs/installation/next)
+```bash
+npm install
+```
 
-> Check out [the docs for Local Development](https://supabase.com/docs/guides/getting-started/local-development) to also run Supabase locally.
+3. Set up environment variables:
+   Create a `.env.local` file with:
 
-## Feedback and issues
+```env
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+```
 
-Please file feedback and issues over on the [Supabase GitHub org](https://github.com/supabase/supabase/issues/new/choose).
+4. Configure Supabase:
 
-## More Supabase examples
+   - Set up Google OAuth in Supabase Auth settings
+   - Add redirect URLs for authentication
+   - Configure user roles in user metadata
 
-- [Next.js Subscription Payments Starter](https://github.com/vercel/nextjs-subscription-payments)
-- [Cookie-based Auth and the Next.js 13 App Router (free course)](https://youtube.com/playlist?list=PL5S4mPUpp4OtMhpnp93EFSo42iQ40XjbF)
-- [Supabase Auth and the Next.js App Router](https://github.com/supabase/supabase/tree/master/examples/auth/nextjs)
+5. Run the development server:
+
+```bash
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) to view the application.
+
+## Project Structure
+
+```
+sea-catering/
+├── app/                          # Next.js App Router pages
+│   ├── auth/                     # Authentication pages
+│   ├── dashboard/                # Protected dashboard
+│   ├── menu/                     # Meal plans page
+│   ├── subscriptions/            # Subscription plans
+│   ├── contact/                  # Contact & testimonials
+│   └── layout.tsx                # Root layout
+├── components/                   # Reusable components
+│   ├── auth/                     # Authentication components
+│   ├── navbar/                   # Navigation components
+│   ├── sidebar/                  # Dashboard sidebar
+│   ├── testimonials/             # Testimonial components
+│   └── ui/                       # shadcn/ui components
+├── lib/                          # Utilities and configurations
+│   └── supabase/                 # Supabase client configuration
+└── public/                       # Static assets
+```
+
+## Key Pages
+
+- **/** - Homepage with company information and features
+- **/menu** - Interactive meal plans with detailed modals
+- **/subscriptions** - Subscription plan comparison
+- **/contact** - Contact information and testimonials
+- **/dashboard** - Protected user/admin dashboard
+- **/auth/login** - Authentication page with Google OAuth
+
+## Authentication Flow
+
+1. Users can sign in with Google OAuth or email/password
+2. User roles are stored in Supabase user metadata
+3. Dashboard content varies based on user role (admin/user)
+4. Protected routes redirect unauthenticated users to login
