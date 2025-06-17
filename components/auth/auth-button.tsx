@@ -43,7 +43,7 @@ export function AuthButton() {
   if (!user) {
     return (
       <Link href="/login">
-        <Button size="sm" className="font-medium">
+        <Button size="sm" className="font-medium w-full md:w-auto">
           Get Started
         </Button>
       </Link>
@@ -68,10 +68,10 @@ export function AuthButton() {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild>
+      <DropdownMenuTrigger asChild className="w-full md:w-auto">
         <Button
           variant="ghost"
-          className="relative h-10 w-auto px-3 py-2 hover:bg-accent transition-colors"
+          className="relative h-10 w-auto px-3 py-2 hover:bg-accent transition-colors "
         >
           <div className="flex items-center gap-3">
             <Avatar className="h-8 w-8 ring-2 ring-primary/10">

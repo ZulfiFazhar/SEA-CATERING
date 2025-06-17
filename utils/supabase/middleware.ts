@@ -48,6 +48,7 @@ export async function updateSession(request: NextRequest) {
     "/menu",
     "/about",
     "/contact",
+    "/subscriptions",
   ];
   const authRoutes = ["/login", "/signup", "/forgot-password"];
 

@@ -195,9 +195,7 @@ export function Navbar() {
                 <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wider px-2">
                   Account
                 </div>
-                <div className="bg-gradient-to-r from-muted/50 to-transparent p-4 rounded-xl">
-                  <AuthButton />
-                </div>
+                <AuthButton />
               </div>
             </SheetContent>
           </Sheet>
