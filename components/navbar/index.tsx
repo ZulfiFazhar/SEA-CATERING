@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, Utensils } from "lucide-react";
@@ -13,10 +13,8 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { AuthButtonClient } from "@/components/auth/auth-button-client";
-import { ThemeSwitcher } from "@/components/theme-switcher";
-import { createClient } from "@/lib/supabase/client";
-import { User } from "@supabase/supabase-js";
+import { AuthButton } from "@/components/auth/auth-button";
+import { ModeToggle } from "@/components/theme/theme-switcher";
 import { cn } from "@/lib/utils";
 
 const navigationItems = [
@@ -27,32 +25,17 @@ const navigationItems = [
 ];
 
 export function Navbar() {
-  const [user, setUser] = useState<User | null>(null);
+  const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
-  const supabase = createClient();
 
-  useEffect(() => {
-    const getUser = async () => {
-      const {
-        data: { user },
-      } = await supabase.auth.getUser();
-      setUser(user);
-    };
+  const hideNavbar =
+    pathname.startsWith("/dashboard") ||
+    pathname.startsWith("/admin") ||
+    pathname.startsWith("/auth");
 
-    getUser();
-
-    const {
-      data: { subscription },
-    } = supabase.auth.onAuthStateChange((event, session) => {
-      setUser(session?.user ?? null);
-    });
-
-    return () => subscription.unsubscribe();
-  }, [supabase.auth]);
-
-  const allNavigationItems = user
-    ? [...navigationItems, { name: "Dashboard", href: "/dashboard" }]
-    : navigationItems;
+  if (hideNavbar) {
+    return null;
+  }
 
   return (
     <nav className="w-full flex justify-center border-b border-b-foreground/10 h-16 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50">
@@ -65,7 +48,7 @@ export function Navbar() {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-8">
-          {allNavigationItems.map((item) => (
+          {navigationItems.map((item) => (
             <Link
               key={item.name}
               href={item.href}
@@ -83,16 +66,16 @@ export function Navbar() {
 
         {/* Desktop Actions */}
         <div className="hidden md:flex items-center gap-4">
-          <ThemeSwitcher />
-          <AuthButtonClient />
+          <ModeToggle />
+          <AuthButton />
         </div>
 
         {/* Mobile Menu */}
         <div className="md:hidden flex items-center gap-2">
-          <ThemeSwitcher />
-          <Sheet>
+          <ModeToggle />
+          <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="md:hidden">
+              <Button variant="ghost" size="icon">
                 <Menu className="h-5 w-5" />
                 <span className="sr-only">Toggle menu</span>
               </Button>
@@ -109,10 +92,11 @@ export function Navbar() {
               </SheetHeader>
 
               <div className="flex flex-col gap-4 mt-8">
-                {allNavigationItems.map((item) => (
+                {navigationItems.map((item) => (
                   <Link
                     key={item.name}
                     href={item.href}
+                    onClick={() => setIsOpen(false)}
                     className={cn(
                       "text-lg font-medium transition-colors py-2",
                       pathname === item.href
@@ -125,7 +109,7 @@ export function Navbar() {
                 ))}
 
                 <div className="border-t pt-4 mt-4">
-                  <AuthButtonClient />
+                  <AuthButton />
                 </div>
               </div>
             </SheetContent>

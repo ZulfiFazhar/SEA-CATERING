@@ -1,0 +1,53 @@
+import {
+  BookOpen,
+  CreditCard,
+  Home,
+  MessageSquare,
+  Settings,
+  Star,
+  User,
+  Users,
+  Package,
+  BarChart3,
+  Bell,
+  Shield,
+  FileText,
+  Truck,
+  Activity,
+  Calendar,
+  HelpCircle,
+  ChefHat,
+  Utensils,
+  Clock,
+  PauseCircle,
+  Command,
+} from "lucide-react";
+
+export const iconMap = {
+  BookOpen,
+  CreditCard,
+  Home,
+  MessageSquare,
+  Settings,
+  Star,
+  User,
+  Users,
+  Package,
+  BarChart3,
+  Bell,
+  Shield,
+  FileText,
+  Truck,
+  Activity,
+  Calendar,
+  HelpCircle,
+  ChefHat,
+  Utensils,
+  Clock,
+  PauseCircle,
+  Command,
+};
+
+export function getIcon(iconName: string) {
+  return iconMap[iconName as keyof typeof iconMap] || Command;
+}
