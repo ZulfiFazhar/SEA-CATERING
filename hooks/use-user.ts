@@ -32,7 +32,7 @@ export function useUser(): UseUserReturn {
 
         setUser(authUser as User);
       } catch (err) {
-        console.error("Error fetching user:", err);
+        console.log("Error fetching user:", err);
         setError(err instanceof Error ? err.message : "Failed to fetch user");
         setUser(null);
       } finally {

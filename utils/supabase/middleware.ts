@@ -40,7 +40,15 @@ export async function updateSession(request: NextRequest) {
   );
 
   // Public routes yang tidak memerlukan authentication
-  const publicRoutes = ["/", "/login", "/signup", "/forgot-password"];
+  const publicRoutes = [
+    "/",
+    "/login",
+    "/signup",
+    "/forgot-password",
+    "/menu",
+    "/about",
+    "/contact",
+  ];
   const authRoutes = ["/login", "/signup", "/forgot-password"];
 
   // Jika route public, allow access
